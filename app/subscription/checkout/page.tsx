@@ -47,7 +47,7 @@ export default function CheckoutPage() {
   };
 
   const plans = {
-    monthly: { name: 'Monthly', price: '£19.99', period: '/month', prizePool: '£14.00', charity: '£2.00+', platform: '£3.99' },
+    monthly: { name: 'Monthly', price: '£19.99', period: '/month', prizePool: '£14.00', charity: '£2.00+', platform: '£3.99', badge: 'Save £39.98' },
     yearly: { name: 'Annual', price: '£199.90', period: '/year', prizePool: '£140.00', charity: '£20.00+', platform: '£39.90', badge: 'Save £39.98' },
   };
   const selected = plans[plan];
