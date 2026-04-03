@@ -86,7 +86,7 @@ export function checkMatch(
   winningNumbers: number[]
 ): { type: '5-match' | '4-match' | '3-match' | null; matched: number[] } {
   const matched = userScores.filter(score => winningNumbers.includes(score));
-  const uniqueMatched = [...new Set(matched)];
+  const uniqueMatched = Array.from(new Set(matched));
 
   if (uniqueMatched.length >= 5) {
     return { type: '5-match', matched: uniqueMatched.slice(0, 5) };
