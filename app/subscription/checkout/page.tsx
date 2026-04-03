@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import { Shield, Check, ArrowRight, CreditCard, Lock } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const supabase = createClient();
@@ -167,5 +167,13 @@ export default function CheckoutPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen animated-bg flex items-center justify-center p-4"><div className="spinner w-8 h-8" /></div>}>
+      <CheckoutContent />
+    </Suspense>
   );
 }
